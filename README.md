@@ -1,7 +1,7 @@
 ﻿# FoodMenuApp
 
-![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
-![Django](https://img.shields.io/badge/Django-5.x-green?logo=django)
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
+![Django](https://img.shields.io/badge/Django-6.x-green?logo=django)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
 
