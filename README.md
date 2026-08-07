@@ -1,5 +1,14 @@
 ﻿# FoodMenuApp
 
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Django](https://img.shields.io/badge/Django-5.x-green?logo=django)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+
+A personal Django learning project to strengthen backend development skills while building a modern food menu application.
+
+---
+
 ## About the Project
 
 **FoodMenuApp** is a personal learning project built with **Django**. The main goal of this project is to strengthen and maintain my backend development skills by working with the Django framework in a practical environment.
