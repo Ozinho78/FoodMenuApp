@@ -5,4 +5,5 @@ from main_app import views
 urlpatterns = [
     path('', views.index),
     # path('hello/', views.index),
+    path('item/', views.item),
 ]
