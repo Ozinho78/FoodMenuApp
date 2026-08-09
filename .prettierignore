@@ -1,0 +1,10 @@
+﻿# Django Templates komplett ausschließen
+templates/
+**/templates/**/*.html
+*.html
+
+# Standard-Ausschlüsse
+venv/
+__pycache__/
+db.sqlite3
+staticfiles/
