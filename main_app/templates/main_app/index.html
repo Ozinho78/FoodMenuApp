@@ -1,4 +1,20 @@
-﻿<ul>
+﻿{% comment %} Loading CSS before rendering the page {% endcomment %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% comment %} defining Staticfiles and Design {% endcomment %}
+  {% comment %} Staticfiles are defined under Installed Apps in settings.py {% endcomment %}
+  <link rel="stylesheet" href="{% static 'main_app/style.css' %}">
+
+  <title>Start-Page</title>
+</head>
+<body>
+  <ul>
   {% for item in item_list %}
   <li>
     {% comment %} <a href="/main_app/{{item.id}}"> {% endcomment %}
@@ -11,3 +27,6 @@
   </li>
   {% endfor %}
 </ul>
+
+</body>
+</html>
