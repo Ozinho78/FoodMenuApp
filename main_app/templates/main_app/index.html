@@ -1,7 +1,11 @@
 ﻿<ul>
   {% for item in item_list %}
   <li>
-    <a href="/main_app/{{item.id}}">
+    {% comment %} <a href="/main_app/{{item.id}}"> {% endcomment %}
+    {% comment %} wenn URL einen Namen hat, kann der Name verwendet werden {% endcomment %}
+    {% comment %} bei Anpassung der URL, müssen keine Templates angepasst werden {% endcomment %}
+    {% comment %} NameSpacing falls detail in anderen Apps verwendet wird {% endcomment %}
+    <a href="{% url 'main_app:detail' item.id %}">
       {{ item.item_name }} -> {{ item.item_price }} -> {{ item.item_desc }}
     </a>
   </li>
