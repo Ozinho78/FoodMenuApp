@@ -9,6 +9,7 @@ app_name = 'main_app'
 urlpatterns = [
     path('', views.index, name='index'),
     # path('hello/', views.index),
-    path('item/', views.item),
+    # path('item/', views.item),
     path('<int:id>/', views.detail, name='detail'),
+    path('add/', views.create_item),
 ]
