@@ -1,32 +1,64 @@
-﻿{% comment %} Loading CSS before rendering the page {% endcomment %}
-{% load static %}
+﻿{% extends 'main_app/base.html' %}
+{% comment %} Loading CSS before rendering the page {% endcomment %}
+{% comment %} {% load static %} {% endcomment %}
 
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% endcomment %}
 
   {% comment %} defining Staticfiles and Design {% endcomment %}
   {% comment %} Staticfiles are defined under Installed Apps in settings.py {% endcomment %}
-  <link rel="stylesheet" href="{% static 'main_app/style.css' %}">
+  {% comment %} <link rel="stylesheet" href="{% static 'main_app/style.css' %}"> {% endcomment %}
 
-  <title>Start-Page</title>
+  {% comment %} Importing Tailwind without installation {% endcomment %}
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> {% endcomment %}
+
+  {% comment %} <title>Start-Page</title>
 </head>
-<body>
-  <ul>
-  {% for item in item_list %}
-  <li>
+<body> {% endcomment %}
+
+
+{% block body %}
+<div>
+    {% for item in item_list %}
+    <div class="m-10 flex items-center w-1/2 mx-auto">
+        <div class="w-48 shrink-0">
+            <img class="w-48 h-48 object-cover rounded-lg" src="{{ item.item_image.url }}" alt="{{ item.item_name }}">
+        </div>
+
+        <div class="mx-16 w-48 shrink-0">
+            <div class="font-bold">{{ item.item_name }}</div>
+            <div>{{ item.item_desc }}</div>
+            <div class="text-green-700 font-bold">${{ item.item_price }}</div>
+        </div>
+
+        <div>
+            <a class="bg-red-500 text-white font-bold px-4 py-2 rounded-md whitespace-nowrap" href="{% url 'main_app:detail' item.id %}">View Details</a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+  {% comment %} <ul>
+
+    <li> {% endcomment %}
     {% comment %} <a href="/main_app/{{item.id}}"> {% endcomment %}
     {% comment %} wenn URL einen Namen hat, kann der Name verwendet werden {% endcomment %}
     {% comment %} bei Anpassung der URL, müssen keine Templates angepasst werden {% endcomment %}
     {% comment %} NameSpacing falls detail in anderen Apps verwendet wird {% endcomment %}
-    <a href="{% url 'main_app:detail' item.id %}">
-      {{ item.item_name }} -> {{ item.item_price }} -> {{ item.item_desc }}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
 
-</body>
-</html>
+        {% comment %} <img src="{{ item.item_image.url }}" alt="{{ item.item_name }}">
+      {{ item.item_name }} -> {{ item.item_price }} -> {{ item.item_desc }}
+      </a>
+    </li>
+
+  </ul> {% endcomment %}
+
+
+{% comment %} </body>
+</html> {% endcomment %}
