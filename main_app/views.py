@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from .forms import ItemForm
 from .models import Item
@@ -36,7 +36,17 @@ def item(request):
 
 
 def create_item(request):
-    form = ItemForm()
+    form = ItemForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            # zurück zur Index-Page
+            return redirect('main_app:index')
+        # <QueryDict: {'csrfmiddlewaretoken': ['Dd6YCim4EpBk4pPNmZdhj0ZvxFES1oP5kL0395uLtDZjRlPKQpN9OjV98FkNIIIt'], 'item_name': ['Pasta'], 'item_desc': ['Delicious pasta'], 'item_price': ['13'], 'item_image': ['pasta.jpg']}>
+        # [14/Aug/2026 00:12:48] "POST /main_app/add/ HTTP/1.1" 200 795
+        print("Post request is triggered")
+        print(request.POST)
+
     context = {
         'form': form
     }
